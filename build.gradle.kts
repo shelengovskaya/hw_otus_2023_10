@@ -1,9 +1,11 @@
 import io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension
 import org.gradle.plugins.ide.idea.model.IdeaLanguageLevel
+import org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
 
 plugins {
     idea
     id("io.spring.dependency-management")
+    id("org.springframework.boot") apply false
     id("name.remal.sonarlint") apply false
     id("com.diffplug.spotless") apply false
 }
@@ -34,6 +36,9 @@ allprojects {
     apply(plugin = "io.spring.dependency-management")
     dependencyManagement {
         dependencies {
+            imports {
+                mavenBom(BOM_COORDINATES)
+            }
             dependency("com.google.guava:guava:$guava")
         }
     }
@@ -56,6 +61,16 @@ subprojects {
     configure<com.diffplug.gradle.spotless.SpotlessExtension> {
         java {
             palantirJavaFormat("2.38.0")
+        }
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+        testLogging.showStandardStreams = true
+        testLogging.showExceptions = true
+        reports {
+            junitXml.required.set(true)
+            html.required.set(true)
         }
     }
 }
