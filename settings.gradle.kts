@@ -5,6 +5,7 @@ include(":hw03-annotations")
 include(":hw04-gc:homework")
 include(":hw06-solid")
 include(":hw08-json:homework")
+include(":hw15-executors")
 
 
 pluginManagement {
