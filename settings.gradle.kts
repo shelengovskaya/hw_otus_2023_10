@@ -6,6 +6,7 @@ include(":hw04-gc:homework")
 include(":hw05-aop")
 include(":hw06-solid")
 include(":hw08-json:homework")
+include(":hw09-jdbc:homework")
 include(":hw16-queues")
 
 pluginManagement {
