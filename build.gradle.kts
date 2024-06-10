@@ -33,6 +33,7 @@ allprojects {
     val protobufBom: String by project
     val guava: String by project
     val grpc: String by project
+    val reflections: String by project
 
     apply(plugin = "io.spring.dependency-management")
     dependencyManagement {
@@ -44,6 +45,7 @@ allprojects {
             dependency("io.grpc:grpc-netty:$grpc")
             dependency("io.grpc:grpc-protobuf:$grpc")
             dependency("io.grpc:grpc-stub:$grpc")
+            dependency("org.reflections:reflections:$reflections")
         }
     }
 }
