@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<style>
+    th, td {
+        border: 1px solid;
+        padding: 10px;
+    }
+</style>
+
+<body>
+<h4>
+    <form th:action="@{/clients}" th:object="${clientDTO}" th:method="post" accept-charset="utf-8">
+        <label>Имя: <input type="text" name="name" style="margin-top: 20px;">   </label>
+        <label>Адрес: <input type="text" name="address" style="margin-top: 20px;">   </label>
+        <label>Телефон: <input type="text" name="phones" style="margin-top: 20px;">   </label>
+        <input type="submit" value="Добавить" style="margin-top: 20px">
+    </form>
+</h4>
+
+<h2>Пользователи:</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Имя</th>
+        <th>Адрес</th>
+        <th>Телефон</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="clientDTO : ${clients}">
+        <td th:text="${clientDTO.id}"/>
+        <td th:text="${clientDTO.name}"/>
+        <td th:text="${clientDTO.address}"/>
+        <td th:text="${clientDTO.phones}"/>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
