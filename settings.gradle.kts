@@ -15,6 +15,8 @@ include(":hw13-ioc")
 include(":hw15-executors")
 include(":hw16-queues")
 include(":hw17-grpc")
+include(":hw18-webflux:client-service")
+include(":hw18-webflux:datastore-service")
 
 pluginManagement {
     val dependencyManagement: String by settings
